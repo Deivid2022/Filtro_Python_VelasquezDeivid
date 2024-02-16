@@ -104,20 +104,7 @@ def AñadirServicio():
 
 #AñadirServicio()
 
-def EliminarServicios():
-    with open('servicios.json','r') as archivo:
-        data = json.load(archivo)
-    servicios = data
-    num = input('Ingresa el nombre del servicio que deseas eliminar: ')
-    for servicio in servicios:
-        if servicio == num:
-            servicios.remove(servicio)
-    
-    with open('servicios.json','w') as archivo:
-        json.dump(data,archivo,indent=4)
 
-EliminarServicios()            
-            
     
     
         
