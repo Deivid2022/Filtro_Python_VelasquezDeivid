@@ -1,10 +1,7 @@
 {
-    "Servicios": [
-        {
-            "k": {}
-        },
-        {
-            "r": {}
-        }
-    ]
+    "Servicios": {
+        "Fibra optica": [],
+        "Planes pospago": [],
+        "Planes prepago": []
+    }
 }

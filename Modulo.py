@@ -87,25 +87,33 @@ def Categoria():
 
 #Categoria()
 
-def AñadirServicio():
+
+def AñadirClienteServicio():
     with open('servicios.json','r') as archivo:
         data = json.load(archivo)
+    with open('usuarios.json','r') as archivo:
+        data_usuarios = json.load(archivo)
+        
+    usuarios = data_usuarios['Usuario']
+    fibra = data['Servicios']['Fibra optica']
+    id_usuario = input('Ingresa el id del usuario: ')
     
-    servicios = data['Servicios']
-    servicios2 = input('Ingresa un servicio: ')
-    nuevo_servicios = {}
-    nuevo_servicios[servicios2] = {}
-    
-    
-    servicios.append(nuevo_servicios)
-    
+    for usuario in usuarios:
+        if usuario['identidad'] == id_usuario:
+            servicio = input('Que servicio ocupa el usuario(Fibra optica, Planes pospago Planes prepago) :').capitalize()
+            if servicio == 'Fibra optica':
+                nuevo_usuario = {
+                    'identidad': usuario['identidad'],
+                    'nombre': usuario['nombre'],
+                    'apellido':usuario['apellido'],
+                    'año':usuario['año'],
+                    'categoria':usuario['categoria']
+                }
+                fibra.append(nuevo_usuario)
     with open('servicios.json','w') as archivo:
         json.dump(data,archivo,indent=4)
 
-#AñadirServicio()
-
-
-    
+AñadirClienteServicio()
     
         
 
